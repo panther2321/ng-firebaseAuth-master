@@ -1,0 +1,57 @@
+<div style="background-color: rgba(171, 171, 171, 1); color:aliceblue" class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form>
+        <h4>Sign In</h4>
+        <label>
+          Email
+          <input type="email" class="form-control form-control-sm" placeholder="you@example.com">
+        </label>
+        <br>
+        <label>
+          Password
+          <input type="password" class="form-control form-control-sm" placeholder="your password">
+        </label>
+      </form>
+      <hr style="border-color:aliceblue; width:75%">
+      <h6>Social Networks</h6>
+      <ul>
+        <li><a (click)="doGoogleLogin()">Google</a></li>
+        <li><a (click)="doTwitterLogin()">Twitter</a></li>
+        <li><a (click)="doFacebookLogin()">Facebook</a></li>
+        <li><a (click)="doGithubLogin()"a>Github</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <form class="col-md-6">
+          <h4>Sign Up</h4>
+          <label>
+            Email
+            <input type="email" class="form-control form-control-sm" placeholder="you@example.com">
+          </label>
+          <br>
+          <label>
+            Password
+            <input type="password" class="form-control form-control-sm" placeholder="your password">
+          </label>
+        </form>
+        <div class="col-md-6">
+          Enter as <a>Anonymous</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <a (click)="logout()">Logout</a>
+</div>
+
+<div *ngIf="ngfAuth.user | async as user">
+  <!-- {{ user | json }} -->
+  <label>UserName</label>
+  <p>{{ user.displayName }}</p>
+  <label>Photo</label>
+  <img width="250px" [src]="user.photoURL" alt="">
+</div>
